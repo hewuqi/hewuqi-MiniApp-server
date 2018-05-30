@@ -1,0 +1,37 @@
+{
+  "button":[
+    {
+      "type":"click",
+      "name":"验证码",
+      "key":"IdentifyCode"
+    },
+    {
+      "name":"核武器",
+      "sub_button":[
+        {
+          "type":"view",
+          "name":"认证说明",
+          "key":"Certification"
+        },
+        {
+          "type":"click",
+          "name":"使用说明",
+          "key":"UsageInstruction"
+        },
+        {
+          "type":"click",
+          "name":"协作论坛",
+          "key":"Forum"
+        },
+        {
+          "type":"click",
+          "name":"交流反馈",
+          "key":"Feedback"
+        }]
+    },
+    {
+      "type": "click",
+      "name": "历史文章",
+      "key": "History"
+    }]
+}

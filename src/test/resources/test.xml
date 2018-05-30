@@ -1,0 +1,8 @@
+<xml>
+    <ToUserName>yaphone</ToUserName>
+    <FromUserName>lzz</FromUserName>
+    <CreateTime>1348831860</CreateTime>
+    <MsgType>text</MsgType>
+    <Content>Hello World</Content>
+    <MsgId>1234567890123456</MsgId>
+</xml>
