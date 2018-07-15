@@ -1,4 +1,4 @@
-package com.hewuqi.miniapp.service;
+package com.hewuqi.miniapp.face.service;
 
 /**
  * @author https://github.com/yaphone

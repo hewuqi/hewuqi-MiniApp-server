@@ -1,4 +1,4 @@
-package com.hewuqi.miniapp.utils;
+package com.hewuqi.miniapp.face.util;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.hewuqi.miniapp.service;
+package com.hewuqi.miniapp.face.service;
 
 /**
  * 腾讯云存储

@@ -1,6 +1,6 @@
-package com.hewuqi.miniapp.service.impl;
+package com.hewuqi.miniapp.face.service.impl;
 
-import com.hewuqi.miniapp.service.QiNiuStorageService;
+import com.hewuqi.miniapp.face.service.QiNiuStorageService;
 import com.qiniu.util.Auth;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

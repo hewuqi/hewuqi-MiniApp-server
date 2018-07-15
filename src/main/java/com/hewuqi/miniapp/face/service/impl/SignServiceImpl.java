@@ -1,12 +1,10 @@
-package com.hewuqi.miniapp.service.impl;
+package com.hewuqi.miniapp.face.service.impl;
 
-import com.hewuqi.miniapp.service.SignService;
-import com.hewuqi.miniapp.utils.SignUtil;
+import com.hewuqi.miniapp.face.service.SignService;
+import com.hewuqi.miniapp.face.util.SignUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @author https://github.com/yaphone
