@@ -7,6 +7,7 @@ import com.arronlong.httpclientutil.common.HttpConfig;
 import com.arronlong.httpclientutil.common.HttpHeader;
 import com.hewuqi.miniapp.face.service.CompareService;
 import com.hewuqi.miniapp.face.service.SignService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Header;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import java.util.Map;
  * @version 1.0
  * @date 2018/5/30 21:06
  */
+@Slf4j
 @Service
 public class CompareServiceImpl implements CompareService{
 
@@ -44,6 +46,7 @@ public class CompareServiceImpl implements CompareService{
             JSONObject respObj = JSONObject.parseObject(resp);
             result = respObj.getJSONObject("data").getString("similarity");
         }catch (Exception e) {
+            log.error(String.format("人脸比对失败:urlA %s urlB %s", urlA, urlB));
         }
         return result;
     }
