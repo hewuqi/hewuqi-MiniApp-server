@@ -1,8 +1,6 @@
 package com.hewuqi.miniapp.free.controller;
 
-import com.hewuqi.miniapp.free.dto.BankCardDto;
-import com.hewuqi.miniapp.free.dto.CellDto;
-import com.hewuqi.miniapp.free.dto.IpDto;
+import com.hewuqi.miniapp.free.dto.*;
 import com.hewuqi.miniapp.free.service.FreeService;
 import com.hewuqi.utils.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +26,6 @@ public class FreeController {
 
     @RequestMapping("/cellSearch")
     private BaseResponse cellSearch(String mnc, String lac, String ci) {
-        System.out.println(mnc);
         CellDto resp = freeService.getCellDto(mnc, lac, ci);
         return new BaseResponse(resp);
     }
@@ -37,5 +34,17 @@ public class FreeController {
     private BaseResponse bankCardSearch(String cardNo) {
         BankCardDto cardDto = freeService.getBankCardDto(cardNo);
         return new BaseResponse(cardDto);
+    }
+
+    @RequestMapping("/macSearch")
+    private BaseResponse macSearch(String mac) {
+        MacDto macDto = freeService.getMacDto(mac);
+        return new BaseResponse(macDto);
+    }
+
+    @RequestMapping("/whoisSearch")
+    private BaseResponse whoisSearch(String address) {
+        WhoisDto whoisDto = freeService.getWhoisDto(address);
+        return new BaseResponse(whoisDto);
     }
 }

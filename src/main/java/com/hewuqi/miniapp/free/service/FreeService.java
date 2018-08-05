@@ -1,8 +1,6 @@
 package com.hewuqi.miniapp.free.service;
 
-import com.hewuqi.miniapp.free.dto.BankCardDto;
-import com.hewuqi.miniapp.free.dto.CellDto;
-import com.hewuqi.miniapp.free.dto.IpDto;
+import com.hewuqi.miniapp.free.dto.*;
 
 /**
  * @author https://github.com/yaphone
@@ -22,5 +20,24 @@ public interface FreeService {
      */
     CellDto getCellDto(String mnc, String lac, String ci);
 
+    /**
+     * 银行卡查询
+     * @param cardNo
+     * @return
+     */
     BankCardDto getBankCardDto(String cardNo);
+
+    /**
+     * MAC地址查询
+     * @param mac
+     * @return
+     */
+    MacDto getMacDto(String mac);
+
+    /**
+     * 网站whois查询
+     * @param address
+     * @return
+     */
+    WhoisDto getWhoisDto(String address);
 }

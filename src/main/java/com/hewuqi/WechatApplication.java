@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@MapperScan("com.hewuqi.android.dao")
+@MapperScan("com.hewuqi.*.dao")
 public class WechatApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WechatApplication.class, args);

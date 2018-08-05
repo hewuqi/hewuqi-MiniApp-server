@@ -1,13 +1,12 @@
 package com.hewuqi.miniapp.free.service;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.arronlong.httpclientutil.HttpClientUtil;
 import com.arronlong.httpclientutil.builder.HCB;
 import com.arronlong.httpclientutil.common.HttpConfig;
 import com.arronlong.httpclientutil.common.HttpHeader;
-import com.hewuqi.miniapp.free.dto.BankCardDto;
-import com.hewuqi.miniapp.free.dto.CellDto;
-import com.hewuqi.miniapp.free.dto.IpDto;
+import com.hewuqi.miniapp.free.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.Header;
 import org.jsoup.Jsoup;
@@ -94,5 +93,51 @@ public class FreeServiceImpl implements FreeService{
             log.error("银行卡信息查询失败", e);
         }
         return cardDto;
+    }
+
+    @Override
+    public MacDto getMacDto(String mac) {
+        String url = "http://api.cellocation.com:81/wifi/?mac=" + mac + "&output=json";
+        MacDto macDto = new MacDto();
+        try {
+            HttpConfig config = HttpConfig.custom().url(url);
+            String resp = HttpClientUtil.get(config);
+            macDto = JSON.toJavaObject(JSON.parseObject(resp), MacDto.class);
+        } catch (Exception e) {
+            log.error("MAC地址查询失败");
+        }
+        return macDto;
+    }
+
+    @Override
+    public WhoisDto getWhoisDto(String address) {
+        WhoisDto whoisDto = new WhoisDto();
+        String appCode = "APPCODE 74cd59b9a2fc4ae1912c4a24b5363768";
+        String url = "http://ali-beian.showapi.com/beian?domain=" + address;
+        try {
+            Header[] headers = HttpHeader.custom().authorization(appCode).build();
+            HttpConfig config = HttpConfig.custom().url(url).headers(headers);
+            String resp = HttpClientUtil.get(config);
+            whoisDto = this.convertToWhoisDto(resp);
+        } catch (Exception e) {
+            log.error("网站Whois查询失败");
+        }
+
+        return whoisDto;
+    }
+
+    private WhoisDto convertToWhoisDto(String resp) {
+        WhoisDto whoisDto = new WhoisDto();
+        JSONObject json = JSON.parseObject(resp);
+        JSONObject obj = json.getJSONObject("showapi_res_body").getJSONObject("obj");
+        whoisDto.setAddress(obj.getString("address"));
+        whoisDto.setNum(obj.getString("num"));
+        whoisDto.setType(obj.getString("type"));
+        whoisDto.setUpdateTime(obj.getString("update_time"));
+        whoisDto.setComName(obj.getString("com_name"));
+        whoisDto.setSysName(obj.getString("sys_name"));
+        whoisDto.setDomain(obj.getString("domain"));
+
+        return whoisDto;
     }
 }
