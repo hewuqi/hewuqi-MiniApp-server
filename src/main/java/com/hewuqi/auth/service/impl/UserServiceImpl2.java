@@ -2,7 +2,7 @@ package com.hewuqi.auth.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.hewuqi.auth.dao.UserDao;
-import com.hewuqi.auth.service.UserService;
+import com.hewuqi.auth.service.UserService2;
 import com.hewuqi.auth.util.CommonUtil;
 import com.hewuqi.auth.util.constants.ErrorEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ import java.util.Set;
  * @date: 2017/11/2 10:18
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl2 implements UserService2 {
     @Autowired
     private UserDao userDao;
 

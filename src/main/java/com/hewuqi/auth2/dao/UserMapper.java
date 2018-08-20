@@ -1,7 +1,7 @@
-package com.hewuqi.android.dao;
+package com.hewuqi.auth2.dao;
 
-import com.hewuqi.android.model.User;
-import com.hewuqi.android.model.UserExample;
+import com.hewuqi.auth2.model.User;
+import com.hewuqi.auth2.model.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,7 +10,7 @@ public interface UserMapper {
 
     int deleteByExample(UserExample example);
 
-    int deleteByPrimaryKey(String username);
+    int deleteByPrimaryKey(Long id);
 
     int insert(User record);
 
@@ -18,7 +18,7 @@ public interface UserMapper {
 
     List<User> selectByExample(UserExample example);
 
-    User selectByPrimaryKey(String username);
+    User selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") User record, @Param("example") UserExample example);
 

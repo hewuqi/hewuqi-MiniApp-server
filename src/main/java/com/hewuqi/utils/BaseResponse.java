@@ -6,21 +6,28 @@ package com.hewuqi.utils;
  * @date 2018/5/13 17:02
  */
 public class BaseResponse {
-    private String code;
+    private int code;
     private String msg;
     private Object data;
 
     public BaseResponse(Object data){
-        this.code = "200";
+        this.code = 200;
         this.msg = "success";
         this.data = data;
     }
 
-    public String getCode() {
+    public BaseResponse(ErrorCodeEnum errorCode, Object data) {
+        this.code = errorCode.getCode();
+        this.msg = errorCode.getMsg();
+        this.data = data;
+
+    }
+
+    public int getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(int code) {
         this.code = code;
     }
 

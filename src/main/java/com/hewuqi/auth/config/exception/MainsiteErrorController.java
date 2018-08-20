@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.hewuqi.auth.util.CommonUtil;
 import com.hewuqi.auth.util.constants.ErrorEnum;
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @description: 系统错误拦截, 主要是针对404的错误
  * @date: 2017/10/24 10:31
  */
-@Controller
+//@Controller
 public class MainsiteErrorController implements ErrorController {
 
     private static final String ERROR_PATH = "/error";

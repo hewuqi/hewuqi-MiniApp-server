@@ -1,7 +1,7 @@
 package com.hewuqi.auth.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.hewuqi.auth.service.UserService;
+import com.hewuqi.auth.service.UserService2;
 import com.hewuqi.auth.util.CommonUtil;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserService userService;
+    private UserService2 userService;
 
     /**
      * 查询用户列表
